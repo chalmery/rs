@@ -2,6 +2,7 @@
 use std::env;
 use std::fs;
 use std::process;
+use std::error::Error;
 
 fn main() {
     //这个是能接受Unicode字符，如果是别的会抛异常
@@ -10,17 +11,29 @@ fn main() {
     // println!("{:?}",args);
 
     let config = Config::new(&args)
+    //unwrap表示打开包装，
     .unwrap_or_else(|err|{
         println!("解析参数错误：{}",err);
         process::exit(1);
     });
-
-    let contents = fs::read_to_string(config.filename)
-    .expect("无法读取文件");
-
-    println!("文件内容：\n {}",contents);
+    //如果返回的是Result的Err类型也就是Box<dyn Error>>做处理
+    if let Err(e) = run(config){
+         println!("应用错误：{}",e);
+         process::exit(1);
+    }
 
 }
+
+//dyn 表示动态dynamic Box<dyn Error>相当于java的返回exception及其子类
+fn run( config: Config) ->Result<(),Box<dyn Error>>{
+    println!("要搜索的内容：{}",config.query);
+    //?相当于kt的不处理错误，交给方法调用者
+    let contents = fs::read_to_string(config.filename)?;
+    println!("文件内容：\n {}",contents);
+    Ok(())
+}
+
+
 struct Config{
     query:String,
     filename:String,
