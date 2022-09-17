@@ -1,0 +1,18 @@
+GitHub Copilot
+Your free GitHub Copilot preview has finished
+Hi there,
+
+Your preview has expired. But that’s okay! To regain access, 
+all you need to do is choose a plan.
+
+If you’re on the fence, here’s a brief reminder of what 
+GitHub Copilot can help you with:
+
+Get code suggestions in more than a dozen coding languages, 
+including Python, JavaScript, TypeScript, Go, and Ruby
+Spend less time creating boilerplate and repetitive code 
+patterns and more time building software
+Code confidently in unfamiliar territory and avoid spelunking 
+through docs or web pages
+If you’re a student or open source maintainer, GitHub Copilot is free. 
+Otherwise, click the button below to enable your subscription.

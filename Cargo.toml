@@ -6,5 +6,6 @@ members = [
     "httpserver",
     "httpclient",
     "rocket",
-    "tauri-app/src-tauri"
+    "tauri-app/src-tauri",
+    "minigrep"
 ]

@@ -1,7 +1,8 @@
-#![cfg_attr(
-    all(not(debug_assertions), target_os = "windows"),
-    windows_subsystem = "windows"
-)]
+//无用代码
+// #![cfg_attr(
+//     all(not(debug_assertions), target_os = "windows"),
+//     windows_subsystem = "windows"
+// )]
 
 #[tauri::command]
 fn greet(name: &str) -> String {
