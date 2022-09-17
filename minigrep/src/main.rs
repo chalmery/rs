@@ -30,11 +30,4 @@ impl Config {
     }
 }
 
-//读取配置
-fn parse_config(args:&[String]) -> Config{
-    //牺牲内存换来少管理所有权
-    let query  = args[1].clone();
-    let filename  = args[2].clone(); 
-    Config { query,filename }
-}
 
