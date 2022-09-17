@@ -8,7 +8,10 @@ pub fn run( config: Config) ->Result<(),Box<dyn Error>>{
     println!("要搜索的内容：{}",config.query);
     //?相当于kt的不处理错误，交给方法调用者
     let contents = fs::read_to_string(config.filename)?;
-    println!("文件内容：\n {}",contents);
+
+    for result in search(&config.query, &contents) {
+        println!("{}",result);
+    }
     Ok(())
 }
 
@@ -31,4 +34,31 @@ impl Config {
     }
 }
 
+
+pub fn search<'a>(query:&str,contents:&'a str)->Vec<&'a str>{
+    let mut results = Vec::new();
+    for line in contents.lines() {
+        if line.contains(query) {
+            results.push(line);
+        }
+    }
+    results 
+}
+
+#[cfg(test)]
+mod tests{
+    use super::*;
+
+    #[test]
+    fn one_result(){
+        let query = "github";
+        let contents = "\
+hello,
+what,
+rust is a lang,       
+github is open.";
+        assert_eq!(vec!["github is open."],
+        search(query,contents))
+    }
+}
 
