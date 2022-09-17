@@ -1,5 +1,5 @@
-GitHub Copilot
-Your free GitHub Copilot preview has finished
+github Copilot
+Your free github Copilot preview has finished
 Hi there,
 
 Your preview has expired. But that’s okay! To regain access, 
